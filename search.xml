@@ -4,13 +4,25 @@
   
     
     <entry>
-      <title>2023DASCTF七月挑战赛部分复现</title>
-      <link href="/2023/08/03/2023DASCTF%E4%B8%83%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9B%E9%83%A8%E5%88%86%E5%A4%8D%E7%8E%B0/"/>
-      <url>/2023/08/03/2023DASCTF%E4%B8%83%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9B%E9%83%A8%E5%88%86%E5%A4%8D%E7%8E%B0/</url>
+      <title>2023DASCTF七月挑战赛复现</title>
+      <link href="/2023/08/03/2023DASCTF%E4%B8%83%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9B%E5%A4%8D%E7%8E%B0/"/>
+      <url>/2023/08/03/2023DASCTF%E4%B8%83%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9B%E5%A4%8D%E7%8E%B0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="EzDHKE"><a href="#EzDHKE" class="headerlink" title="EzDHKE"></a>EzDHKE</h2><p>题目</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">from hashlib import sha256</span><br><span class="line">from random import randbytes, getrandbits</span><br><span class="line">from flag import flag</span><br><span class="line">def diffie_hellman(g, p, flag):</span><br><span class="line">    alice = getrandbits(1024)</span><br><span class="line">    bob = getrandbits(1024)</span><br><span class="line">    alice_c = pow(g, alice, p)</span><br><span class="line">    bob_c = pow(g, bob, p)</span><br><span class="line">    print(alice_c , bob_c)</span><br><span class="line">    key = sha256(long_to_bytes(pow(bob_c, alice, p))).digest()</span><br><span class="line">    &#x27;&#x27;&#x27;这段代码获取 Bob ( bob_c) 发送的值，将其提高到 Alice 私钥的幂，然后取模p。</span><br><span class="line">       然后将生成的长整数转换为字节并使用 SHA-256 进行哈希处理。然后，哈希运算的结果作为字节字符串返回。</span><br><span class="line">       最终结果作为 Alice 和 Bob 的共享密钥.</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    iv = b&quot;dasctfdasctfdasc&quot;</span><br><span class="line">    # AES的CBC模式设置初始化向量(IV).IV 是一个随机数，用作密文的第一个块。这是必要的，因为 AES 是分组密码，而分组密码需要初始化向量来启动加密过程。</span><br><span class="line"></span><br><span class="line">    aes = AES.new(key, AES.MODE_CBC, iv)  #创建一个新的 AES 对象</span><br><span class="line">    &#x27;&#x27;&#x27;密钥、IV 和明文必须都是类似字节的对象。密钥的长度必须为 16、24 或 32 字节(128bit,192bit,256bit)，</span><br><span class="line">        IV 的长度必须为 16 字节（因为 AES 在 16 字节的块上运行），明文的长度必须是 16 字节的倍数。</span><br><span class="line">        如果明文不是 16 字节的倍数，则必须对其进行填充以达到 16 的倍数的大小。</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    enc = aes.encrypt(flag)</span><br><span class="line">    print(enc)</span><br><span class="line"></span><br><span class="line">def getp():</span><br><span class="line">    p = int(input(&quot;P = &quot;))</span><br><span class="line">    assert isPrime(p)</span><br><span class="line">    assert p.bit_length() &gt;= 1024 and p.bit_length() &lt;= 2048</span><br><span class="line">    g = 2</span><br><span class="line">    diffie_hellman(g, p, flag)</span><br><span class="line"></span><br><span class="line">getp()</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> 竞赛 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 竞赛 </tag>
+            
+        </tags>
       
     </entry>
     
