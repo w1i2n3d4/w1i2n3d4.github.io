@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>随笔一</title>
+      <link href="/2023/08/13/%E9%9A%8F%E7%AC%94%E4%B8%80/"/>
+      <url>/2023/08/13/%E9%9A%8F%E7%AC%94%E4%B8%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一同余式求模数">一、同余式求模数</h2><p>已知 a % flag = (a%p)，且 a 、(a%p)以及 flag 的格式已知，a是一个素数，求 flag.</p><p>令 t = (a%p),有 <span class="math display">\[a \equiv t \textbf{ }mod\textbf{ }flag\Rightarrow a= k*flag+t\]</span></p><p><span class="math display">\[\Rightarrow k*flag=a-t\]</span> 所以 k*flag 我们是知道的，问题是我们如何才能求出 flag 呢？</p><p>这里我们可以将 k*flag 分解成多个素因子的乘积，而flag必定是其中几个素因子的乘积。可以将分解出来的各个素因子进行排列组合，求出每一种可能的乘积，找出符合flag 格式的那一种可能就行。</p><h2 id="二rsa中已知-kphi">二、RSA中已知 k*phi</h2><p>已知 <span class="math display">\[n = p*q*r,hint = p*s*q - p*s -q*s+s,且r也已知\]</span></p><p>可以得到， <span class="math display">\[n_{1}=n/(p*q),hint=s*(p*q-p-q+1)=s*phi\]</span> 这个 phi 是 n1 的欧拉函数，就可以用 s*phi 代替 phi进行求解。</p><p>推导一下， <span class="math display">\[m\equiv c^{d}\textbf{ }mod \textbf{ }n\Rightarrow m\equiv(m^{e})^{d}\textbf{ }mod\textbf{ }n\]</span></p><p><span class="math display">\[\because e*d\equiv 1\textbf{ }mod\textbf{ }k*phi\Rightarrowe*d=k_{1}*k*phi+1\]</span></p><p><span class="math display">\[\therefore m\equiv m^{k_{1}*k*phi+1}\textbf{ }mod\textbf{ }n\Rightarrowm\equiv m^{k_{1}*k*phi}*m\textbf{ }mod\textbf{ }n\]</span></p><p>又由费马小定理可知， <span class="math display">\[m^{\varphi (n)}\equiv 1\textbf{ }mod\textbf{ }n\]</span></p><p><span class="math display">\[\therefore m\equiv 1*m\textbf{ }mod\textbf{ }n\]</span></p><p>综上，用 k*phi 代替 phi 进行求解是可行的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LCG入门</title>
       <link href="/2023/08/10/LCG%E5%85%A5%E9%97%A8/"/>
       <url>/2023/08/10/LCG%E5%85%A5%E9%97%A8/</url>
