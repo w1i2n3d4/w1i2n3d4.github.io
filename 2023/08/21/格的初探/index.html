@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>格的初探 | yolo</title><meta name="author" content="ahu"><meta name="copyright" content="ahu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="温柔要有，但不是妥协。我们要在安静中，不慌不忙的坚强。简单记录一下学习格密码的过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="格的初探">
+<meta property="og:url" content="http://w1i2n3d4/github.io/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/index.html">
+<meta property="og:site_name" content="yolo">
+<meta property="og:description" content="温柔要有，但不是妥协。我们要在安静中，不慌不忙的坚强。简单记录一下学习格密码的过程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img/10.jpg">
+<meta property="article:published_time" content="2023-08-21T15:28:21.000Z">
+<meta property="article:modified_time" content="2023-08-22T09:09:28.982Z">
+<meta property="article:author" content="ahu">
+<meta property="article:tag" content="格密码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img/10.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://w1i2n3d4/github.io/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '格的初探',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-22 17:09:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https:img/10.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="yolo"><span class="site-name">yolo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/shuoshuo/"><i class="fa-fw fa fa-comments-o"></i><span> 分享</span></a></li><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">格的初探</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-21T15:28:21.000Z" title="发表于 2023-08-21 23:28:21">2023-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-22T09:09:28.982Z" title="更新于 2023-08-22 17:09:28">2023-08-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%A0%BC%E5%AF%86%E7%A0%81/">格密码</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="格的初探"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="格的定义">格的定义</h2>
+<p>任何一组<strong>线性无关</strong>的向量所生成的<strong>系数为整数</strong>的<strong>向量集合</strong>称为格。</p>
+<p>即<br>
+<span class="math display">\[
+L=\begin{Bmatrix} a_{1}\nu _{1}+a_{2}\nu  _{2}+...+a_{n}\nu
+_{n},&amp;a_{1},a_{2},...,a_{n}\in Z \end{Bmatrix}
+\]</span> 这一组线性无关的向量<span class="math inline">\(v_{1},v_{2},...,v_{n}\)</span>就是格<span class="math inline">\(L\)</span>的基。格<span class="math inline">\(L\)</span>的元素是<span class="math inline">\(v_{1},v_{2},...,v_{n}\)</span>的整系数线性组合。某种程度上，格可以理解为<strong>系数为整数的向量空间。</strong></p>
+<figure>
+<img src="/img/loading.gif" data-original="https://cdn.jsdelivr.net/gh/Harry0597/Imag@master/uPic/image-20221115221257017.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h2 id="格基变换">格基变换</h2>
+<p>格的基是一组<strong>线性无关的向量</strong>，由这一组向量可以生成完整的格。也就是可以由它们线性组合构成所有的格点。基所包含的<strong>向量个数</strong>成为格的<strong>维度</strong>。通常，<strong>一个格可以有多组基</strong>，也就是说，不同的基可能生成同一个格。</p>
+<figure>
+<img src="/img/loading.gif" data-original="https://cdn.jsdelivr.net/gh/Harry0597/Imag@master/uPic/image-20221130231915760.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>那么如何判断两组格基可以生成同一个格？</p>
+<p>如果把格基用矩阵表示（列向量为每一个基），则对格基做以下操作，对应的格不变：</p>
+<p>1.列向量交换：<span class="math inline">\(v_{i}\leftrightarrow
+v_{j}\)</span></p>
+<p>2.向量取负：<span class="math inline">\(v_{i}\leftrightarrow
+-v_{i}\)</span></p>
+<p>3.给一个向量加上k乘另一个向量：<span class="math inline">\(v_{i}\leftrightarrow v_{i}+k*v_{j}\)</span></p>
+<p>更加有趣的是，上述操作均对应为<strong>给格基矩阵右乘一个幺模矩阵</strong>，幺模矩阵是一种特殊矩阵，其为<strong>整数矩阵</strong>，其行列式的值为<strong>正负1</strong>，且这种矩阵的乘法具有封闭性，幺模矩阵的乘积仍为幺模矩阵。</p>
+<p><strong>定理：两个格基等价，当且仅当可以把两格基写成以下格式：</strong>
+<span class="math display">\[
+B_{2}=B_{1}U
+\]</span> 其中，<span class="math inline">\(U\)</span>是一个幺模矩阵。</p>
+<p>假定<span class="math inline">\(v_{1},v_{2},...,v_{n}\)</span>是格的一组基，<span class="math inline">\(w_{1},w_{2},...,w{n}\in
+L\)</span>，则必然存在整系数<span class="math inline">\(a_{ij}\)</span>使得 <span class="math display">\[
+\left\{\begin{matrix}
+w_{1} =a_{11}v_{1}+a_{12}v_{2}+...+a_{1n}v_{n}\\
+w_{2}=a_{21}v_{1}+a_{22}v_{2}+...+a_{2n}v_{n}\\
+...\\
+w_{n}=a_{n1}v_{1}+a_{n2}v_{2}+...+a_{nn}v_{n}
+\end{matrix}\right.
+\]</span>
+这样，格的问题，我们就可以<strong>转化为矩阵运算</strong>了。</p>
+<h2 id="格的基本域">格的基本域</h2>
+<h3 id="什么是基本域">什么是基本域</h3>
+<figure>
+<img src="/img/loading.gif" data-original="/github.io/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/image-20230822090330518.png" alt="image-20230822090330518">
+<figcaption aria-hidden="true">image-20230822090330518</figcaption>
+</figure>
+<p>几何上，基本域就是<strong>这组基围出的区域</strong>，如上图中的阴影部分。</p>
+<h3 id="基本域的性质">基本域的性质</h3>
+<p>一个 lattice
+会有不同的基，也就会有不同的基本域，但<strong>每个基本域的体积(无论什么形状的)都一样</strong>。</p>
+<h3 id="基本域的应用">基本域的应用</h3>
+<p>另外，我们还可以将空间中的点映射到基本域上，判断<strong>点是否在格上</strong>。</p>
+<p>基本域的表示方法：</p>
+<p>​<br>
+<span class="math display">\[
+P(B)=a_{1}v_{1}+a_{2}v_{2}+...+a_{n}v_{n},a_{i}\in [0,1)
+\]</span></p>
+<p>现在假设空间中有一个点，表示为</p>
+<p>​<br>
+<span class="math display">\[
+x=a_{1}v_{1}+a_{2}v_{2}+...+a_{n}v_{n}
+\]</span> 那么当对这个点在基本域范围内做模运算时，只需把每个系数<span class="math inline">\(a_{i}\)</span>模1乘上基向量即可。</p>
+<p>​<br>
+<span class="math display">\[
+x\textbf{ }mod\textbf{ }P(B)=(a_{1}\textbf{ }mod\textbf{
+}1)*v_{1}+(a_{2}\textbf{ }mod\textbf{ }1)*v_{2}+...+(a_{n}\textbf{
+}mod\textbf{ }1)*v_{n}
+\]</span> 这样就把这个点映射到基本域上了。</p>
+<h2 id="行列式协体积">行列式（协体积）</h2>
+<p>格的行列式是<strong>基向量构成的多面体的体积</strong>（标量），也就是基本域的体积。前面说过格的每个基本域的体积是相等的，所以<strong>行列式是格的固有属性</strong>，同一个格选取的不同组基，行列式是相等的。</p>
+<p>前面也讲过格基变换，两组基要生成同一个格，当且仅当两者可以乘一个幺模矩阵进行相互转化，即</p>
+<p>​<br>
+<span class="math display">\[
+|det(BU)|=|det(B)det(U)|=|det(B)|
+\]</span>
+需要注意的是，<strong>行列式可以用来衡量格密度的大小，若行列式越大，格密度越小</strong>。</p>
+<p>再来看一下<strong>协体积的上限</strong>。 若构成 lattice
+的基向量长度固定，要想得到<strong>最大的协体积</strong>，必然各个基向量都要是<strong>正交</strong>的（类比，长度相同的四条线段要围成平行四边形，当且仅当是正方形是面积最大），于是我们就得到了协体积的上限:</p>
+<p>​<br>
+<span class="math display">\[
+设L是一个格，F是L的一个基本域，任取一组基向量V_{1},v_{2},..,v_{n}，\\那                             么|det(L)|=Vol(F)\leqslant||v_{1}||*||v_{2}||*...*||v_{n}||
+\]</span>
+<strong>基向量的各个向量越趋近于正交，行列式越接近上限，当是正交时，上面不等式取到等号</strong>。</p>
+<h2 id="格的困难问题">格的困难问题</h2>
+<h3 id="svpthe-shortest-vector-problem">SVP(The shortest vector
+problem)</h3>
+<p>最短向量问题:找到格中的最短向量，也就是在格中找到一个非零向量<span class="math inline">\(v\in L\)</span>使得<span class="math inline">\(||v||\)</span>最小。</p>
+<h4 id="svp的上限">SVP的上限</h4>
+<p>一个格的最短非零向量到底有多短呢？这其实是<strong>和格的维度以及行列式有关</strong>。</p>
+<p>根据Hermite定理， 有</p>
+<p>​<br>
+<span class="math display">\[
+\lambda (\Lambda )\leqslant \sqrt{n}*\sqrt[n]{det(\Lambda )}
+\]</span> ​</p>
+<p>其中，<span class="math inline">\(\Lambda\)</span>是格基矩阵，<span class="math inline">\(\lambda (\Lambda )\)</span>是格中最短向量，<span class="math inline">\(det()\)</span>是行列式</p>
+<h3 id="cvpthe-closest-vector-problem">CVP(<strong>The Closest Vector
+Problem</strong>)</h3>
+<p>最近向量问题：给定格外的一个点，找到格中离它最近或近似最近的格点。CVP一般要比SVP困难的多，<strong>SVP可以规约到CVP</strong>。</p>
+<h2 id="lll算法格基规约">LLL算法(格基规约)</h2>
+<p>在1982年，A.K.Lenstra，H.W.Lenstra,Jr 和 L.lovasz 提出一种解决 SVP
+问题的算法，通常称之为<span class="math inline">\(LLL\)</span>算法，它是一种<strong>格基规约算法</strong>。</p>
+<p>在求解 SVI
+的问题时，最先想到的是对格基进行多种线性组合的尝试，其中最难的问题是如何<strong>基向量变小</strong>，<strong>使基向量最大程度的趋于正交化。</strong></p>
+<figure>
+<img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/b7d6dd48560f4c8d92a5c151fdb46f86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5ZSg5ZeR77yB,size_20,color_FFFFFF,t_70,g_se,x_16" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>需要 Gram-Schmidt(施密特) 正交化知识的铺垫。</p>
+<h3 id="gram-schmidt施密特-正交化">Gram-Schmidt(施密特) 正交化</h3>
+<p><span class="math display">\[
+如果x_{1},x_{2},...,x_{n}是某向量空间中的基，那么可通过下列做法找到该向量空间中的n个两两正交的向量\\v_{1},v_{2},...,v_{n},称为施密特正交化。v_{1},v_{2},...,v_{n}就是该向量空间中的一组正交基。
+\]</span></p>
+<figure>
+<img src="/img/loading.gif" data-original="/github.io/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/_1541261982__73c7b7059740dff5099b428156abe82c_-827434617_CSDN_1692686997318_0_xg_0.jpg" alt="_1541261982__73c7b7059740dff5099b428156abe82c_-827434617_CSDN_1692686997318_0_xg_0">
+<figcaption aria-hidden="true">_1541261982__73c7b7059740dff5099b428156abe82c_-827434617_CSDN_1692686997318_0_xg_0</figcaption>
+</figure>
+<p>现在我们对探讨如何寻找二维空间的正交基。</p>
+<p>下图是二维空间<span class="math inline">\(R^{n}\)</span>的一组基</p>
+<figure>
+<img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/b332a58a9842482b8e49b5a5a3e51129.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>只要将其中一个向量对另外一个向量进行投影，就可以得到<span class="math inline">\(R^{n}\)</span> 的一组正交基：</p>
+<figure>
+<img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/d9be3c2a5c0d47ddba0056308599fd00.gif" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>下面我们来进行代数推导，假设基为<span class="math inline">\(x_{1},x_{2}\)</span>，选择<span class="math inline">\(x_{1}\)</span>作为<span class="math inline">\(v_{1}\)</span>,作出<span class="math inline">\(x_{2}\)</span>在<span class="math inline">\(v_{1}\)</span>所在直线上的投影<span class="math inline">\(\vec{x_{2}}\)</span>,连接<span class="math inline">\(x_{2},\vec{x_{2}}\)</span>所得到垂线就是<span class="math inline">\(v_{2}\)</span></p>
+<p><img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/95cf8161a4194ba9b85ea30111c5c167.png" alt="img"> <span class="math display">\[
+\left\{\begin{matrix}
+v_{1} =x_{2}\\
+v_{2}=x_{2}-\vec{x_{2}}
+\end{matrix}\right.\Rightarrow \left\{\begin{matrix}
+v_{1} =x_{2}\\
+v_{2}=v_{1}-\vec{kv_{1}}
+\end{matrix}\right.
+\]</span></p>
+<p><span class="math display">\[
+由v_{1}v_{2}=0得v_{1}*(v_{1}-kv_{2})=0\Rightarrow
+k=\frac{v_{2}v_{1}}{v_{1}v_{1}}
+\]</span></p>
+<p><span class="math display">\[
+\therefore该向量空间的一组正交基为 \left\{\begin{matrix}
+v_{1}=x_{1}\\
+v_{2}=v_{1}-\frac{v_{2}v_{1}}{v_{1}v_{1}}
+\end{matrix}\right.
+\]</span></p>
+<p>这样就可以推广到<span class="math inline">\(m\)</span>维向量空间施密特正交化：</p>
+<figure>
+<img src="/img/loading.gif" data-original="/github.io/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/_1416238013__c98b50957d5c8a8e9a9be1a4df3c87cb_1761730088_CSDN_1692689087352_0_xg_0.jpg" alt="_1416238013__c98b50957d5c8a8e9a9be1a4df3c87cb_1761730088_CSDN_1692689087352_0_xg_0">
+<figcaption aria-hidden="true">_1416238013__c98b50957d5c8a8e9a9be1a4df3c87cb_1761730088_CSDN_1692689087352_0_xg_0</figcaption>
+</figure>
+<h3 id="格基规约的条件">格基规约的条件</h3>
+<p><span class="math inline">\(LLL\)</span>格基规约需要满足以下两个条件： <span class="math display">\[
+{\forall}1\leq i\leqslant n,j&lt; i,|u_{i,j}|\leq \frac{1}{2}
+\]</span></p>
+<p><span class="math display">\[
+{\forall}1\leq i&lt; n,\delta ||b_{i}||^{2}\leqslant
+||u_{i+1,i}b_{i}+b_{i+1}||^2
+\]</span></p>
+<p><span class="math inline">\(LLL\)</span>算法最终输出的基称为<span class="math inline">\(LLL\)</span>约化基。</p>
+<h3 id="格基约化的性质">格基约化的性质</h3>
+<p>1、<span class="math inline">\(\delta=\frac{3}{4}\)</span>是该算法的一个特例，<span class="math inline">\(LLL\)</span>算法成立的前提是<span class="math inline">\(\frac{1}{4}&lt; \delta&lt; 1\)</span>.</p>
+<p>2、根据格约化基的定义得， <span class="math display">\[
+\delta ||b_{i}||^{2}\leqslant
+||u_{i+1,i}b_{i}+b_{i+1}||^2=u_{i+1,i}^2||b_{i}||^2+||b_{i+1}||^2
+\]</span></p>
+<p><span class="math display">\[
+\therefore ||b_{i+1}||^2\geq (\delta -u_{i+1,i}^2)||b_{i}||^2=(\delta
+-\frac{1}{4})||b_{i}||^2
+\]</span></p>
+<p>所以<span class="math inline">\(b_{i+1}\)</span>不会比<span class="math inline">\(b_{i}\)</span>短太多。</p>
+<h2 id="例题">例题</h2>
+<p>例题来自 NSSCTF 平台。之前看了格密码理论和做题联系不起来，看了
+DexterJie 师傅的博客后受益匪浅。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line"></span><br><span class="line">p = getPrime(1024)</span><br><span class="line"></span><br><span class="line">f = getPrime(400)</span><br><span class="line">g = getPrime(512)</span><br><span class="line">r = getPrime(400)</span><br><span class="line"></span><br><span class="line">h = inverse(f, p) * g % p</span><br><span class="line"></span><br><span class="line">m = b&#x27;******&#x27;</span><br><span class="line">m = bytes_to_long(m)</span><br><span class="line"></span><br><span class="line">c = (r*h + m) % p</span><br><span class="line"></span><br><span class="line">print(f&#x27;p = &#123;p&#125;&#x27;)</span><br><span class="line">print(f&#x27;h = &#123;h&#125;&#x27;)</span><br><span class="line">print(f&#x27;c = &#123;c&#125;&#x27;)</span><br><span class="line"></span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line">p = 170990541130074930801165526479429022133700799973347532191727614846803741888876816210632483231997413973919037199883422312436314365293577997262903161076615619596783971730864586404602951191341733308807254112018161897113881363794353050758324742415299277578203838160939521046655099610387485947145087271531951477031</span><br><span class="line">h = 19027613518333504891337723135627869008620752060390603647368919831595397216728378486716291001290575802095059192000315493444659485043387076261350378464749849058547797538347059869865169867814094180939070464336693973680444770599657132264558273692580535803622882040948521678860110391309880528478220088107038861065</span><br><span class="line">c = 75639016590286995205676932417759002029770539425113355588948888258962338419567264292295302442895077764630601149285564849867773180066274580635377957966186472159256462169691456995594496690536094824570820527164224000505303071962872595619159691416247971024761571538057932032549611221598273371855762399417419551483</span><br><span class="line">&#x27;&#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<p>先根据题目进行一下公式推导，已知：</p>
+加密： <span class="math display">\[
+h=f^{-1}*g\textbf{ }mod \textbf{ }p\Rightarrow
+g=k*p+h*f\\c=(rh+m)\textbf{ }mod\textbf{ }p\Rightarrow
+(r*f^{-1}*g+m)\textbf{ }mod\textbf{ }p
+\]</span> 解密： <span class="math display">\[
+f*c=(r*g+m*f)\textbf{ }mod\textbf{ }p\\\Rightarrow m*f=(f*c-r*g)\textbf{
+}mod \textbf{ }p\\\Rightarrow m*f=((f*c)\textbf{ }mod\textbf{
+}p)mod\textbf{ }g\\\Rightarrow m=((f*c\textbf{ }mod\textbf{
+}p)*f^{-1})mod\textbf{ }g
+\]</span> 所以要求 <span class="math inline">\(m\)</span>
+,我们必须得先求出 <span class="math inline">\(f\)</span>。<span class="math inline">\(p,h,c\)</span>是已知的，我们根据$
+g=k<em>p+h</em>f$构造出格： $$
+<span class="math display">\[\begin{bmatrix}
+k,f
+\end{bmatrix}\begin{bmatrix}
+p,0\\h,1
+
+\end{bmatrix}\]</span>
+=
+<span class="math display">\[\begin{bmatrix}
+g,f
+\end{bmatrix}\]</span>
+<p>$$ 在这里，我们相当于用<span class="math inline">\(LLL\)</span>算法对<span class="math inline">\((p,0),(h,1)\)</span>这一组基进行格基约化，使这组基变成施密特正交化程度最大的一组基，这样我们就可以求解<span class="math inline">\(SVP\)</span>问题了。也就是说，向量<span class="math inline">\((g,f)\)</span>是最短向量。我们来证明一下：</p>
+<p>我们知道最短向量的上限与格的维度和行列式有关： <span class="math display">\[
+\lambda (\Lambda )\leqslant \sqrt{n}*\sqrt[n]{det(\Lambda )}
+\]</span> 所以，对于格<span class="math inline">\(L\)</span><span class="math inline">\(\bigl(\begin{smallmatrix} p,0 \\ h,1
+\end{smallmatrix}\bigr)\)</span>,<span class="math inline">\(\lambda(L)\leqslant\sqrt{2p}\)</span></p>
+<p>我们来计算一下，<span class="math inline">\(p\)</span> 是 <span class="math inline">\(1024 bit\)</span>,<span class="math inline">\(g\)</span>是 <span class="math inline">\(512bit\)</span>,<span class="math inline">\(f\)</span>是 <span class="math inline">\(400bit\)</span>, <span class="math display">\[
+||(g,f)||=\sqrt{1024+800}=\sqrt{1824})\leqslant\sqrt{2048}
+\]</span> 是满足的，所以说<span class="math inline">\((g,f)\)</span>是最短向量是正确的。</p>
+<p>exp:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from gmpy2 import *</span><br><span class="line">from Crypto.Util.number import *</span><br><span class="line"></span><br><span class="line">p = 170990541130074930801165526479429022133700799973347532191727614846803741888876816210632483231997413973919037199883422312436314365293577997262903161076615619596783971730864586404602951191341733308807254112018161897113881363794353050758324742415299277578203838160939521046655099610387485947145087271531951477031</span><br><span class="line">h = 19027613518333504891337723135627869008620752060390603647368919831595397216728378486716291001290575802095059192000315493444659485043387076261350378464749849058547797538347059869865169867814094180939070464336693973680444770599657132264558273692580535803622882040948521678860110391309880528478220088107038861065</span><br><span class="line">c = 75639016590286995205676932417759002029770539425113355588948888258962338419567264292295302442895077764630601149285564849867773180066274580635377957966186472159256462169691456995594496690536094824570820527164224000505303071962872595619159691416247971024761571538057932032549611221598273371855762399417419551483</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mat = [[h,1],[p,0]]</span><br><span class="line">M = Matrix(ZZ,mat)</span><br><span class="line">g,f = M.LLL()[0]</span><br><span class="line"></span><br><span class="line">m = (f * c %p* invert(f,g)) %g</span><br><span class="line">flag = long_to_bytes(int(m))</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<p>最后附上参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanx.net/lattice-2/">格密码笔记（二）
+(ruanx.net)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zimablue.life/2022/05/04/Lattice-Lesson0/">Lattice-Lesson0
+| ZimaBlue's Blog</a></p>
+<p>https://dexterjie.github.io/2023/07/28/%E5%88%9D%E8%AF%86%E6%A0%BC/#LLL%E7%AE%97%E6%B3%95</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://w1i2n3d4/github.io">ahu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://w1i2n3d4/github.io/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/">http://w1i2n3d4/github.io/2023/08/21/格的初探/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://w1i2n3d4/github.io" target="_blank">yolo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A0%BC%E5%AF%86%E7%A0%81/">格密码</a></div><div class="post_share"><div class="social-share" data-image="https:img/10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/08/13/%E9%9A%8F%E7%AC%94%E4%B8%80/" title="随笔一"><img class="cover" src="/img/loading.gif" data-original="https:img/1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">随笔一</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ahu</div><div class="author-info__description">希望和悲伤都是一缕光，总有一天，我们会再相遇。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/w1i2n3d4"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://githubfast.com/w1i2n3d4" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3235772652@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">格的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E5%9F%BA%E5%8F%98%E6%8D%A2"><span class="toc-number">2.</span> <span class="toc-text">格基变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%9F%9F"><span class="toc-number">3.</span> <span class="toc-text">格的基本域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9F%BA%E6%9C%AC%E5%9F%9F"><span class="toc-number">3.1.</span> <span class="toc-text">什么是基本域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%9F%9F%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">3.2.</span> <span class="toc-text">基本域的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%9F%9F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.3.</span> <span class="toc-text">基本域的应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E5%8D%8F%E4%BD%93%E7%A7%AF"><span class="toc-number">4.</span> <span class="toc-text">行列式（协体积）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%BC%E7%9A%84%E5%9B%B0%E9%9A%BE%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">格的困难问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#svpthe-shortest-vector-problem"><span class="toc-number">5.1.</span> <span class="toc-text">SVP(The shortest vector
+problem)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#svp%E7%9A%84%E4%B8%8A%E9%99%90"><span class="toc-number">5.1.1.</span> <span class="toc-text">SVP的上限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cvpthe-closest-vector-problem"><span class="toc-number">5.2.</span> <span class="toc-text">CVP(The Closest Vector
+Problem)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lll%E7%AE%97%E6%B3%95%E6%A0%BC%E5%9F%BA%E8%A7%84%E7%BA%A6"><span class="toc-number">6.</span> <span class="toc-text">LLL算法(格基规约)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gram-schmidt%E6%96%BD%E5%AF%86%E7%89%B9-%E6%AD%A3%E4%BA%A4%E5%8C%96"><span class="toc-number">6.1.</span> <span class="toc-text">Gram-Schmidt(施密特) 正交化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%9F%BA%E8%A7%84%E7%BA%A6%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">6.2.</span> <span class="toc-text">格基规约的条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%9F%BA%E7%BA%A6%E5%8C%96%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">6.3.</span> <span class="toc-text">格基约化的性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">例题</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/" title="格的初探"><img src="/img/loading.gif" data-original="https:img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="格的初探"/></a><div class="content"><a class="title" href="/2023/08/21/%E6%A0%BC%E7%9A%84%E5%88%9D%E6%8E%A2/" title="格的初探">格的初探</a><time datetime="2023-08-21T15:28:21.000Z" title="发表于 2023-08-21 23:28:21">2023-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/13/%E9%9A%8F%E7%AC%94%E4%B8%80/" title="随笔一"><img src="/img/loading.gif" data-original="https:img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="随笔一"/></a><div class="content"><a class="title" href="/2023/08/13/%E9%9A%8F%E7%AC%94%E4%B8%80/" title="随笔一">随笔一</a><time datetime="2023-08-13T12:53:25.000Z" title="发表于 2023-08-13 20:53:25">2023-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/10/LCG%E5%85%A5%E9%97%A8/" title="LCG入门"><img src="/img/loading.gif" data-original="https:img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LCG入门"/></a><div class="content"><a class="title" href="/2023/08/10/LCG%E5%85%A5%E9%97%A8/" title="LCG入门">LCG入门</a><time datetime="2023-08-09T16:25:40.000Z" title="发表于 2023-08-10 00:25:40">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/03/2023DASCTF%E4%B8%83%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9B%E5%A4%8D%E7%8E%B0/" title="2023DASCTF七月挑战赛复现"><img src="/img/loading.gif" data-original="https:img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023DASCTF七月挑战赛复现"/></a><div class="content"><a class="title" href="/2023/08/03/2023DASCTF%E4%B8%83%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9B%E5%A4%8D%E7%8E%B0/" title="2023DASCTF七月挑战赛复现">2023DASCTF七月挑战赛复现</a><time datetime="2023-08-03T08:59:07.000Z" title="发表于 2023-08-03 16:59:07">2023-08-03</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https:img/10.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By ahu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
