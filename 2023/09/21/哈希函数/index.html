@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>哈希函数 | yolo</title><meta name="author" content="ahu"><meta name="copyright" content="ahu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="人生如逆旅行，我亦是行人">
+<meta property="og:type" content="article">
+<meta property="og:title" content="哈希函数">
+<meta property="og:url" content="https://hucongting.com/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="yolo">
+<meta property="og:description" content="人生如逆旅行，我亦是行人">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hucongting.com/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/img/1.jpg">
+<meta property="article:published_time" content="2023-09-21T07:14:11.000Z">
+<meta property="article:modified_time" content="2023-09-21T15:02:06.291Z">
+<meta property="article:author" content="ahu">
+<meta property="article:tag" content="hash">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hucongting.com/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/img/1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hucongting.com/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '哈希函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-21 23:02:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https:img/1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="yolo"><span class="site-name">yolo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">哈希函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-21T07:14:11.000Z" title="发表于 2023-09-21 15:14:11">2023-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-21T15:02:06.291Z" title="更新于 2023-09-21 23:02:06">2023-09-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="哈希函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="定义">定义</h1>
+<p><span class="math inline">\(Hash\)</span>,一般译作散列、哈希，就是能把<strong>任意长度的输入</strong>（又做预映射）通过<strong>散列算法</strong>，变换成<strong>固定长度的输出</strong>，这个输出就是散列值。</p>
+<p>散列值通常是数字和字母的组合。</p>
+<h1 id="性质">性质</h1>
+<p>1、<strong>不可逆性</strong>。已知哈希函数<span class="math inline">\(F\)</span>和<span class="math inline">\(x\)</span>哈希值,无法逆向求出<span class="math inline">\(x\)</span>.</p>
+<p>2、对于特定的哈希函数，只要<strong>输入不变</strong>，那么<strong>散列值</strong>也肯定是<strong>唯一不变</strong>的.</p>
+<p>3、哈希函数产生的映射应当保持均匀，即<strong>不要使得映射结果堆积在小区间的某一区域</strong>.</p>
+<p>4、敏感性。哪怕输入数据只改变<span class="math inline">\(1bit\)</span>,得到的哈希值也大不相同.</p>
+<p>5、抗碰撞性。理想<span class="math inline">\(Hash\)</span>函数是<strong>无碰撞</strong>的，但实际很难做到这一点。有两种抗碰撞性：弱抗碰撞性、强抗碰撞性.</p>
+<h1 id="典型的哈希函数">典型的哈希函数</h1>
+<p>常见的<span class="math inline">\(Hash\)</span>算法有<span class="math inline">\(MD5\)</span>和<span class="math inline">\(SHA\)</span>系列，目前<span class="math inline">\(MD5\)</span>和<span class="math inline">\(SHA1\)</span>已被破解，一般推荐使用<span class="math inline">\(SHA2-256\)</span>算法.</p>
+<h2 id="md5">MD5</h2>
+<p>输入<strong>任意长度</strong>的信息，以<strong><span class="math inline">\(512bit\)</span>输入数据块</strong>为单位，输出为<span class="math inline">\(128bit\)</span>的信息（数字指纹）。</p>
+<h3 id="实现过程">实现过程</h3>
+<p>1、<strong>补位</strong>。使输入信息的长度变为<span class="math inline">\((N*512+448)bit\)</span>，补位内容为<span class="math inline">\(100...0\)</span></p>
+<p>​ 那为什么不补为<span class="math inline">\(512bit\)</span>的整数倍呢？其实<strong>剩余<span class="math inline">\(64bit\)</span>是原始信息的长度</strong>。也就是说，<strong>补位最终结果是<span class="math inline">\(N*512bit\)</span>的</strong>.</p>
+<p>​
+需要注意的是，<strong>补位操作必须进行</strong>，即使最初信息的长度已经满足<span class="math inline">\((N*512+448)bit\)</span>,但还是要加上<span class="math inline">\(512bit\)</span>,然后再补<span class="math inline">\(64bit\)</span>记录原始</p>
+<p>​ 信息长度. 如下图：</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/_4ea38bea70f5705f4d10589753504999_-1605581762_qq_pic_merged_1695297218980.jpg" alt="_4ea38bea70f5705f4d10589753504999_-1605581762_qq_pic_merged_1695297218980" style="zoom: 80%;"></p>
+<p>2、<strong>分割</strong>。把结果分为n组，每一组长度为<span class="math inline">\(512bit\)</span>.</p>
+<p>3、<strong>计算</strong>。</p>
+<p>$$
+准备四个<strong>标准幻数</strong>，每一个数4个字节，总的16字节。其实四个幻数的值定义也很直接，就是<strong>32个16进制字面值依次排列</strong>。</p>
+<p>分别是：</p>
+<p><span class="math inline">\(A = 01234567\)</span> <span class="math inline">\(B = 89ABCDEF\)</span> <span class="math inline">\(C = FEDCBA98\)</span> <span class="math inline">\(D = 76543210\)</span></p>
+<p>那么，这四个幻数是用来做什么的呢？</p>
+<p>其实不难发现，<strong>四个幻数的长度和<span class="math inline">\(MD5\)</span>散列值的长度都是<span class="math inline">\(128bit\)</span>,四个幻数就是用来做循环初始计算值的</strong>。</p>
+<p>最终<span class="math inline">\(MD5\)</span>散列值就是<strong>四个标准幻数经过多轮哈希运算的结果</strong>。</p>
+<p>需要注意，在程序中，幻数是用<strong>小端字节</strong>表示的，即</p>
+<p><span class="math inline">\(A = 0x67452301\)</span> <span class="math inline">\(B = 0xEFCDAB89\)</span> <span class="math inline">\(C = 0x98BACDFE\)</span> <span class="math inline">\(D = 0x10325476\)</span></p>
+<p>准备工作完成，就可以开始计算了。</p>
+<p>$$ 数据被分为n个<span class="math inline">\(512bit\)</span>，也就是n个64字节，再把每一个64字节分成16份，每份四个字节。</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/qq_pic_merged_1695299701044-1695299720578-3.jpg" style="zoom:80%;"></p>
+<p>$$ <strong>定义四个函数</strong>，分别是 <span class="math display">\[
+FF(A,B,C,D,X,S,AC)
+\]</span></p>
+<p><span class="math display">\[
+GG(A,B,C,D,X,S,AC)
+\]</span></p>
+<p><span class="math display">\[
+HH(A,B,C,D,X,S,AC)
+\]</span></p>
+<p><span class="math display">\[
+II(A,B,C,D,X,S,AC)
+\]</span></p>
+<p>前四个参数分别对应四个标准幻数，第五个参数是每一小份的四个字节数据，第六个和第七个参数都是一些<strong>固定常数</strong>，执行一些逻辑与、或、非、异或运算，加法运算和移位运算。</p>
+<p>$$
+将四个标准幻数换着顺序作为前四个参数输入，并将16份4字节数据依次作为第五个参数代入，经过这么一轮运算，四个标准幻数的值就变了。</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/qq_pic_merged_1695300664580-1695300686916-6.jpg" style="zoom:80%;"></p>
+<p>$$
+将四个标准幻数与一开始的值相加，得到更新后的四个幻数结果。这样就处理完了一个64字节的数据。</p>
+<p>$$
+四个更新后的标准幻数作为第二轮的四个标准幻数输入，并且载入第二个64字节数据中进行运算。</p>
+<p>$$
+重复上述过程，直到n个64字节数据全部计算完成，最终得到的四个标准幻数用十六进制显示出来就是最终<span class="math inline">\(MD5\)</span>的散列值。</p>
+<h2 id="sha1secure-hash-algorithm">SHA1(Secure Hash Algorithm)</h2>
+<p>对于长度小于<span class="math inline">\(2^{64}bit\)</span>的消息，将输入流按照每块<span class="math inline">\(512b(64B)\)</span>进行分块，并产生<span class="math inline">\(160b(20B)\)</span>的信息摘要。</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/_-1380098246__7596ab641515d72663c0d7f89d9375d5_2059481921_CSDN_1695301435358_0_xg_0.jpg" style="zoom:80%;"></p>
+<h3 id="实现过程-1">实现过程</h3>
+<p>大致框图：</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/image-20230921220631860.png" style="zoom: 50%;"></p>
+<p>1、补位。（与<span class="math inline">\(MD5\)</span>补位是一样的）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">第一位：补1</span><br><span class="line">其余位：补0</span><br><span class="line">直至满足 L mod 512 = 448</span><br><span class="line"></span><br><span class="line">512 - 448 = 64</span><br><span class="line">剩余64bit是初始消息的长度</span><br></pre></td></tr></table></figure>
+<p>eg：</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/_982042171__acaa52c4e47dda40ae5b4cf9ead73912_2028097360_Screenshot_20230921_213646_tv.danmaku.bili_0_xg_0.jpg" alt="_982042171__acaa52c4e47dda40ae5b4cf9ead73912_2028097360_Screenshot_20230921_213646_tv.danmaku.bili_0_xg_0" style="zoom:80%;"></p>
+<p>2、将信息分为<span class="math inline">\(n\)</span>个<span class="math inline">\(512bit\)</span>。</p>
+<p>3、每个<span class="math inline">\(512b\)</span>的运算。</p>
+<p>$ $ 把<span class="math inline">\(512b\)</span>分为<span class="math inline">\(26\)</span>份<span class="math inline">\(32b\)</span>,将<span class="math inline">\(16\)</span>份<strong>扩充</strong>到<span class="math inline">\(80\)</span>份.</p>
+<p><img src="/img/loading.gif" data-original="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/_-1557508315__95d3cdded9d9389140b83192cf2e71ce_1417939799_Screenshot_20230921_220935_tv.danmaku.bili_0_xg_0.jpg" alt="_-1557508315__95d3cdded9d9389140b83192cf2e71ce_1417939799_Screenshot_20230921_220935_tv.danmaku.bili_0_xg_0" style="zoom:50%;"></p>
+<p>那么，如何扩充呢？ <span class="math display">\[
+W_{t}=\left\{\begin{matrix}
+M_{t}^{i}\textbf{ }\textbf{ }0\leqslant t\leqslant15\\
+ROTL^{1}(W_{t-3}\bigoplus W_{t-8}\bigoplus W_{t-14}\bigoplus
+W_{t-16})\textbf{ }\textbf{ }16\leqslant t\leqslant79
+\end{matrix}\right.
+\]</span> <span class="math inline">\(ROTL^{1}\)</span>表示左移一位.</p>
+<p>eg: <span class="math display">\[
+W_{16}=(W_{13}\bigoplus W_{8}\bigoplus W_{2}\bigoplus W_{0})&lt;&lt;1
+\]</span> <span class="math inline">\(\bullet\)</span> 设置<span class="math inline">\(5\)</span>个初始量， <span class="math display">\[
+H_{0}^{(0)}=67452301
+\]</span></p>
+<p><span class="math display">\[
+H_{1}^{(0)}=efcdab89
+\]</span></p>
+<p><span class="math display">\[
+H_{2}^{(0)}=98badcfe
+\]</span></p>
+<p><span class="math display">\[
+H_{3}^{(0)}=10325476
+\]</span></p>
+<p><span class="math display">\[
+H_{4}^{(0)}=c3d2e1f0
+\]</span></p>
+<p>$$ 将初始量的值分别赋给<span class="math inline">\(a,b,c,d,e\)</span>
+<span class="math display">\[
+a=H_{0}^{(0)}
+\]</span></p>
+<p><span class="math display">\[
+b=H_{1}^{(0)}
+\]</span></p>
+<p><span class="math display">\[
+c= H_{2}^{(0)}
+\]</span></p>
+<p><span class="math display">\[
+d = H_{3}^{(0)}
+\]</span></p>
+<p><span class="math display">\[
+e = H_{4}^{(0)}
+\]</span></p>
+<p><span class="math inline">\(\bullet\)</span> 进行<span class="math inline">\(80\)</span>轮运算.</p>
+<p>​ <span class="math inline">\(for \textbf{ }t = 0 \textbf{ }to\textbf{
+} 79:\)</span> <span class="math display">\[
+\left \{  \right.
+\]</span> ​ <span class="math inline">\(T =
+ROTL^{5}(a)+f_{t}(b,c,d)+e+K_{t}+W_{t}\)</span></p>
+<p>​ <span class="math inline">\(e=d\)</span></p>
+<p>​ <span class="math inline">\(d=c\)</span></p>
+<p>​ <span class="math inline">\(c=ROLT^{30}(b)\)</span></p>
+<p>​ <span class="math inline">\(b = a\)</span></p>
+<p>​ <span class="math inline">\(a=T\)</span> <span class="math display">\[
+\left.  \right \}
+\]</span> 其中， <span class="math display">\[
+K_{t}=\left\{\begin{matrix}
+5a827999\textbf{ }\textbf{ }0\leqslant t\leqslant19\\
+6ed9eba1\textbf{ }\textbf{ }20\leqslant t\leqslant39\\
+8f1bbcdc\textbf{ }\textbf{ }40\leqslant t\leqslant59\\
+ca62c1d6\textbf{ }\textbf{ }60\leqslant t\leqslant79
+\end{matrix}\right.
+\]</span></p>
+<p><span class="math display">\[
+f_{t}(x,y,z)=\left\{\begin{matrix}
+Ch(x,y,z)=(x\wedge y)\bigoplus(x\wedge z),\textbf{ }\textbf{ }0\leqslant
+t\leqslant19\\
+Parity(x,y,z)=x\bigoplus y\bigoplus z,\textbf{ }\textbf{ }20\leqslant
+t\leqslant39\\
+Maj(x,y,z)=(x\wedge y)\bigoplus(x\wedge z)\bigoplus(y\wedge z),\textbf{
+}\textbf{ }40\leqslant t\leqslant59\\
+Parity(x,y,z)=x\bigoplus y\bigoplus z,\textbf{ }\textbf{ }60\leqslant
+t\leqslant79
+\end{matrix}\right.
+\]</span></p>
+<p><span class="math inline">\(\bullet\)</span> 将<span class="math inline">\(80\)</span>轮运算之后得到的<span class="math inline">\(a,b,c,d,e\)</span>分别与初始量相加.</p>
+<p><span class="math inline">\(\bullet\)</span>
+将上述结果作为第二个<span class="math inline">\(512b\)</span>的初始量进行循环计算。</p>
+<p>$$ 重复上述过程，直到<span class="math inline">\(n\)</span>个<span class="math inline">\(512b\)</span>数据全部计算完成，最终得到的<span class="math inline">\(a,b,c,d,e\)</span>就是<span class="math inline">\(SHA1\)</span>的最终结果。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://hucongting.com">ahu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hucongting.com/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/">https://hucongting.com/2023/09/21/哈希函数/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hucongting.com" target="_blank">yolo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hash/">hash</a></div><div class="post_share"><div class="social-share" data-image="https:img/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/09/15/%E9%9A%8F%E7%AC%94%E4%B8%89/" title="随笔三"><img class="cover" src="/img/loading.gif" data-original="https:img/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">随笔三</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ahu</div><div class="author-info__description">希望和悲伤都是一缕光，总有一天，我们会再相遇。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/w1i2n3d4"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://githubfast.com/w1i2n3d4" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3235772652@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">2.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E7%9A%84%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">典型的哈希函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#md5"><span class="toc-number">3.1.</span> <span class="toc-text">MD5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">3.1.1.</span> <span class="toc-text">实现过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sha1secure-hash-algorithm"><span class="toc-number">3.2.</span> <span class="toc-text">SHA1(Secure Hash Algorithm)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">实现过程</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/" title="哈希函数"><img src="/img/loading.gif" data-original="https:img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希函数"/></a><div class="content"><a class="title" href="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/" title="哈希函数">哈希函数</a><time datetime="2023-09-21T07:14:11.000Z" title="发表于 2023-09-21 15:14:11">2023-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/15/%E9%9A%8F%E7%AC%94%E4%B8%89/" title="随笔三"><img src="/img/loading.gif" data-original="https:img/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="随笔三"/></a><div class="content"><a class="title" href="/2023/09/15/%E9%9A%8F%E7%AC%94%E4%B8%89/" title="随笔三">随笔三</a><time datetime="2023-09-15T12:38:56.000Z" title="发表于 2023-09-15 20:38:56">2023-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/13/%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF%E6%94%BB%E5%87%BB-Franklin-Reiter/" title="相关信息攻击(Franklin-Reiter)"><img src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="相关信息攻击(Franklin-Reiter)"/></a><div class="content"><a class="title" href="/2023/09/13/%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF%E6%94%BB%E5%87%BB-Franklin-Reiter/" title="相关信息攻击(Franklin-Reiter)">相关信息攻击(Franklin-Reiter)</a><time datetime="2023-09-13T01:35:22.000Z" title="发表于 2023-09-13 09:35:22">2023-09-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/11/2023-SICTF-Round-2-WP/" title="2023 SICTF#Round 2 WP"><img src="/img/loading.gif" data-original="https:img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023 SICTF#Round 2 WP"/></a><div class="content"><a class="title" href="/2023/09/11/2023-SICTF-Round-2-WP/" title="2023 SICTF#Round 2 WP">2023 SICTF#Round 2 WP</a><time datetime="2023-09-11T08:31:09.000Z" title="发表于 2023-09-11 16:31:09">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/08/%E4%BA%91%E5%BC%80%E5%8F%91/" title="云开发"><img src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="云开发"/></a><div class="content"><a class="title" href="/2023/09/08/%E4%BA%91%E5%BC%80%E5%8F%91/" title="云开发">云开发</a><time datetime="2023-09-08T09:08:42.000Z" title="发表于 2023-09-08 17:08:42">2023-09-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https:img/1.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By ahu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
