@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>离散对数 | yolo</title><meta name="author" content="ahu"><meta name="copyright" content="ahu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="温柔和暴躁都是我，别人无法限定的我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散对数">
+<meta property="og:url" content="https://hucongting.com/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/index.html">
+<meta property="og:site_name" content="yolo">
+<meta property="og:description" content="温柔和暴躁都是我，别人无法限定的我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hucongting.com/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/img/category_img.jpg">
+<meta property="article:published_time" content="2023-09-26T08:18:59.000Z">
+<meta property="article:modified_time" content="2023-09-26T13:44:35.402Z">
+<meta property="article:author" content="ahu">
+<meta property="article:tag" content="流密码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hucongting.com/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/img/category_img.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hucongting.com/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '离散对数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-26 21:44:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https:img/category_img.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="yolo"><span class="site-name">yolo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">离散对数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-26T08:18:59.000Z" title="发表于 2023-09-26 16:18:59">2023-09-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-26T13:44:35.402Z" title="更新于 2023-09-26 21:44:35">2023-09-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="离散对数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="什么是离散对数难题">什么是离散对数难题</h1>
+<p>如果对于一个整数 <span class="math inline">\(b\)</span>和质数<span class="math inline">\(p\)</span>的一个原根<span class="math inline">\(a\)</span>，可以找到一个<strong>唯一</strong>的指数<span class="math inline">\(i\)</span>，使得：</p>
+<p><span class="math inline">\(b=a^{i}\textbf{ }mod\textbf{
+}p\)</span>成立，其中<span class="math inline">\(0\leq
+i&lt;p-1\)</span>,那么指数<span class="math inline">\(i\)</span>称为<span class="math inline">\(b\)</span> 的以<span class="math inline">\(a\)</span>为基数的模<span class="math inline">\(p\)</span>的<strong>离散对数</strong>。</p>
+<p>而要计算<span class="math inline">\(i\)</span>的值是<strong>十分困难</strong>的。</p>
+<h2 id="原根">原根</h2>
+<p>若<span class="math inline">\(a,n\)</span>为正整数，且<span class="math inline">\(a,n\)</span>互质，令<span class="math inline">\(a^{d}≡1\textbf{ }mod\textbf{
+}n\)</span>,如果用<span class="math inline">\(\delta(n,a)\)</span>表示使该式成立的最小的正整数<span class="math inline">\(d\)</span>，此时如果<span class="math inline">\(d=\varphi(n)\)</span>, 则称<span class="math inline">\(a\)</span> 为模<span class="math inline">\(p\)</span>的原根。</p>
+<p><strong>只有<span class="math inline">\(n=2,4,p^{\alpha},2p^{\alpha}\)</span>（<span class="math inline">\(p\)</span>为奇素数，<span class="math inline">\(α\)</span>为正整数）时，模<span class="math inline">\(n\)</span>的剩余系存在原根。（充要条件)</strong></p>
+<p><strong>原根是有限循环群的生成元。</strong></p>
+<h2 id="生成元">生成元</h2>
+<p>若群<span class="math inline">\(G\)</span>的每一个元都可以表示成<strong>一个元素<span class="math inline">\(a\)</span>的幂次</strong>，则<span class="math inline">\(G\)</span>称为由<span class="math inline">\(a\)</span>生成的循环群，<span class="math inline">\(a\)</span>称为循环群<span class="math inline">\(G\)</span>的生成元。也就是说如果<span class="math inline">\(a\)</span>是<span class="math inline">\(G\)</span>
+的生成元，即所有<span class="math inline">\(G\)</span>中的所有元素都可以被表示成<span class="math inline">\(y=a^{x}\)</span>，此时的<span class="math inline">\(x\)</span>称为<span class="math inline">\(y\)</span>在<span class="math inline">\(G\)</span>中的对数。</p>
+<h2 id="阶">阶</h2>
+<p>设<span class="math inline">\(n\geq1,gcd(a,n)=1\)</span>,使得<span class="math inline">\(a^{d}≡1\textbf{ }mod\textbf{
+}n\)</span>成立的<strong>最小正整数</strong>称为<span class="math inline">\(a\)</span>对模<span class="math inline">\(n\)</span>的阶，记作<span class="math inline">\(\delta n(a)\)</span>。</p>
+<h1 id="sage之离散对数求解">sage之离散对数求解</h1>
+<p>参数说明：</p>
+<p><span class="math inline">\(\bullet\)</span> 求解以<span class="math inline">\(base\)</span>为底，<span class="math inline">\(a\)</span>的对数</p>
+<p><span class="math inline">\(\bullet\)</span> <span class="math inline">\(ord\)</span>为<span class="math inline">\(base\)</span>的阶，可以省却</p>
+<p><span class="math inline">\(\bullet\)</span> <span class="math inline">\(operation\)</span>可以是<span class="math inline">\(+\)</span>与<span class="math inline">\(*\)</span>，默认是<span class="math inline">\(*\)</span></p>
+<p><span class="math inline">\(\bullet\)</span> <span class="math inline">\(bounds\)</span>是一个区间<span class="math inline">\((ld,ud)\)</span>,需要保证所计算的对数都在此区间内。</p>
+<p>(1)、<strong>discrete_log(a,base,ord,operation)</strong>，没有
+<strong>bounds</strong>。</p>
+<p>​ <strong>通用的求离散对数的方法（Pohlig-Hellman+?BSGS）</strong></p>
+<p>​ <span class="math inline">\(\bullet\)</span> 要求<span class="math inline">\(y=g^{x}\textbf{ }(mod\textbf{
+}p)\)</span>中的<span class="math inline">\(g\)</span>必须是<strong>原根</strong>。若<span class="math inline">\(g\)</span>不是原根，需要利用原根将原方程转化为两个关于原根的离散对数问题。</p>
+<p>​ <span class="math inline">\(\bullet\)</span>
+要求<strong>阶是光滑的</strong>（<span class="math inline">\(p-1\)</span>可以分解为多个素数相乘）。</p>
+<p>(2)、<strong>discrete_log_rho(a,base,ord,operation)</strong>：求离散对数的<span class="math inline">\(Pollard-Rho\)</span>算法。</p>
+<p>​ <strong>Pollard
+Rho</strong>算法是一种<strong>随机性的概率型算法</strong></p>
+<p>​ <span class="math inline">\(\bullet\)</span>
+它主要解决<strong>有限循环群</strong>上的离散对数问题。</p>
+<p>​ <span class="math inline">\(\bullet\)</span> <strong>Pollard
+Rho</strong>算法主要就是利用了循环群的生成序列呈现一个 ρ 字形状。</p>
+<p>​ <span class="math inline">\(\bullet\)</span>
+适用于<strong>生成元的阶的素因子都是大数</strong>的情形。</p>
+<p>(3)、<strong>discrete_log_lambda(a,base,ord,operation)</strong>：求解离散对数的<span class="math inline">\(lambda\)</span>算法。</p>
+<p>​ <span class="math inline">\(\bullet\)</span> 适用于题目给出
+<strong>bounds</strong>。</p>
+<p>(4)、<strong>bsgs(base,a,bounds,operation)</strong>：小步大步法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from sage.groups.generic import bsgs</span><br></pre></td></tr></table></figure>
+<p>​ <span class="math inline">\(\bullet\)</span>
+适用于解<strong>高次同余方程</strong>。</p>
+<p>​ <span class="math inline">\(\bullet\)</span> 适用于<strong>模<span class="math inline">\(p\)</span>为质数</strong>的情况。</p>
+<p>​ <span class="math inline">\(\bullet\)</span> <strong>bounds</strong>
+已知。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 环境：sage</span><br><span class="line"># Baby-step Giant-step法</span><br><span class="line">def babystep_giantstep(g, y, p, q=None):</span><br><span class="line">    if q is None:</span><br><span class="line">        q = p - 1</span><br><span class="line">    m = int(q**0.5 + 0.5)</span><br><span class="line">    # Baby step</span><br><span class="line">    table = &#123;&#125;</span><br><span class="line">    gr = 1  # g^r</span><br><span class="line">    for r in range(m):</span><br><span class="line">        table[gr] = r</span><br><span class="line">        gr = (gr * g) % p</span><br><span class="line">    # Giant step</span><br><span class="line">    try:</span><br><span class="line">        gm = pow(g, -m, p)  # gm = g^&#123;-m&#125;</span><br><span class="line">    except:</span><br><span class="line">        return None</span><br><span class="line">    ygqm = y                # ygqm = y * g^&#123;-qm&#125;</span><br><span class="line">    for q in range(m):</span><br><span class="line">        if ygqm in table:</span><br><span class="line">            return q * m + table[ygqm]</span><br><span class="line">        ygqm = (ygqm * gm) % p</span><br><span class="line">    return None</span><br><span class="line"></span><br><span class="line"># Pohlig–Hellman法</span><br><span class="line">def pohlig_hellman_DLP(g, y, p):</span><br><span class="line">    crt_moduli = []</span><br><span class="line">    crt_remain = []</span><br><span class="line">    for q, _ in factor(p-1):</span><br><span class="line">        x = babystep_giantstep(pow(g,(p-1)//q,p), pow(y,(p-1)//q,p), p, q)</span><br><span class="line">        if (x is None) or (x &lt;= 1):</span><br><span class="line">            continue</span><br><span class="line">        crt_moduli.append(q)</span><br><span class="line">        crt_remain.append(x)</span><br><span class="line">    x = crt(crt_remain, crt_moduli)</span><br><span class="line">    return x</span><br><span class="line">    </span><br><span class="line">p = </span><br><span class="line">g =</span><br><span class="line">y =</span><br><span class="line">x = pohlig_hellman_DLP(g, y, p)</span><br></pre></td></tr></table></figure>
+<p>下面针对 <strong>Pohlig Hellman</strong>,给出一个例题</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">from Crypto.Util.number import *</span><br><span class="line">secret = getPrime(128)</span><br><span class="line">m = getPrime(128)</span><br><span class="line">n = getPrime(1024)</span><br><span class="line">c = pow(m, secret, n)</span><br><span class="line">flag = &quot;flag&#123;&quot;+hashlib.md5(str(secret).encode()).hexdigest()+&quot;&#125;&quot;</span><br><span class="line">print(&quot;m = %d&quot; % m)</span><br><span class="line">print(&quot;n = %d&quot; % n)</span><br><span class="line">print(&quot;c = %d&quot; % c)</span><br><span class="line"># m = 211060723077960779250044744266141176829</span><br><span class="line"># n = 89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119974022969989259739901207135911877936187</span><br><span class="line"># c = 32977205552939587326066964781587345932834856116807593874246357335611184723568494377764636367075033866504466671442418777279691941123340914970584204650416137940499348297233941269700668358058974528742129237158207741614517093787264725738282484698794547919205696467463725584733972956537910246421504887816202122161</span><br></pre></td></tr></table></figure>
+<p>观察发现，群的阶（也就是<span class="math inline">\(n-1\)</span>）是光滑的，但由于<span class="math inline">\(n\)</span>太大了，<strong>discrete_log()</strong>似乎跑不出结果，于是去学习了
+<strong>Pohlig Hellman</strong> 算法（后面补上）</p>
+<p>我参考的文章是：<a target="_blank" rel="noopener" href="https://chenliang.org/2021/06/06/attack-dicrete-logarithm/">密码学-06-针对离散对数的攻击</a></p>
+<p>exp</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">n = 89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119974022969989259739901207135911877936187</span><br><span class="line">factor(n-1)</span><br><span class="line"># 2 * 659 * 144811523 * 158091863 * 167642023 * 194814973 * 198114301509256817 * 1524198318315919100927 * 302061228405984819868188635839278249994068296319393442016901959084878254985929326557136330675603997640265462782948042782543029960066166632904951616712643712462381886167331227465971149482608610738439655060064241698902750467248492676743</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"># c = pow(m, secret, n)</span><br><span class="line"># h = g^x mod p</span><br><span class="line">def r(h, g, N, p, qi):</span><br><span class="line">    Zp = Zmod(p)</span><br><span class="line">    h = pow(h, N//qi, p)</span><br><span class="line">    g = pow(g, N//qi, p)</span><br><span class="line">    ri = discrete_log(Zp(h), Zp(g))</span><br><span class="line">    return int(ri)</span><br><span class="line">m = 211060723077960779250044744266141176829</span><br><span class="line">n = 89884656743115795386465259539451236680898848947115328636715040578866337902750481566354238661203768010560056939935696678829394884407208311246423715319737062188883946712432742638151109800623047059726541476042502884419075341171231440736956555270413618581675255342293149119974022969989259739901207135911877936187</span><br><span class="line">c = 32977205552939587326066964781587345932834856116807593874246357335611184723568494377764636367075033866504466671442418777279691941123340914970584204650416137940499348297233941269700668358058974528742129237158207741614517093787264725738282484698794547919205696467463725584733972956537910246421504887816202122161</span><br><span class="line">tmp_list = [659, 144811523, 158091863, 167642023, 194814973]</span><br><span class="line">r_list = []</span><br><span class="line">for qi in tmp_list:</span><br><span class="line">    tmp = r(c,m,n-1,n,qi)</span><br><span class="line">    print(tmp)</span><br><span class="line">    r_list.append(tmp)</span><br><span class="line">x = crt(r_list, tmp_list)</span><br><span class="line"></span><br><span class="line">module = 1</span><br><span class="line">for i in tmp_list:</span><br><span class="line">    module *= i</span><br><span class="line">while True:</span><br><span class="line">    if int(x).bit_length()&gt;128:</span><br><span class="line">        print(&#x27;fail&#x27;)</span><br><span class="line">        break</span><br><span class="line">    if int(pow(m, x, n))==c:</span><br><span class="line">        print(&#x27;x =&#x27;, x)</span><br><span class="line">        flag = &quot;flag&#123;&quot;+hashlib.md5(str(x).encode()).hexdigest()+&quot;&#125;&quot;</span><br><span class="line">        print(flag)</span><br><span class="line">        break</span><br><span class="line">    x += module</span><br><span class="line"># x = 256148714020855512578941590011688772421</span><br><span class="line"># flag&#123;bbb04cf5180893e23e559c63ceae5b8f&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://hucongting.com">ahu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hucongting.com/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/">https://hucongting.com/2023/09/26/离散对数/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hucongting.com" target="_blank">yolo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B5%81%E5%AF%86%E7%A0%81/">流密码</a></div><div class="post_share"><div class="social-share" data-image="https:img/category_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/28/2023%E5%8D%8E%E4%B8%BA%E6%9D%AFWP/" title="2023华为杯WP"><img class="cover" src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2023华为杯WP</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/24/DSA/" title="DSA"><img class="cover" src="/img/loading.gif" data-original="https:img/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">DSA</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ahu</div><div class="author-info__description">希望和悲伤都是一缕光，总有一天，我们会再相遇。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/w1i2n3d4"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://githubfast.com/w1i2n3d4" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3235772652@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E9%9A%BE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">什么是离散对数难题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E6%A0%B9"><span class="toc-number">1.1.</span> <span class="toc-text">原根</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%85%83"><span class="toc-number">1.2.</span> <span class="toc-text">生成元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B6"><span class="toc-number">1.3.</span> <span class="toc-text">阶</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sage%E4%B9%8B%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0%E6%B1%82%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">sage之离散对数求解</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/09/28/2023%E5%8D%8E%E4%B8%BA%E6%9D%AFWP/" title="2023华为杯WP"><img src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023华为杯WP"/></a><div class="content"><a class="title" href="/2023/09/28/2023%E5%8D%8E%E4%B8%BA%E6%9D%AFWP/" title="2023华为杯WP">2023华为杯WP</a><time datetime="2023-09-28T07:03:34.000Z" title="发表于 2023-09-28 15:03:34">2023-09-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/" title="离散对数"><img src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="离散对数"/></a><div class="content"><a class="title" href="/2023/09/26/%E7%A6%BB%E6%95%A3%E5%AF%B9%E6%95%B0/" title="离散对数">离散对数</a><time datetime="2023-09-26T08:18:59.000Z" title="发表于 2023-09-26 16:18:59">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/24/DSA/" title="DSA"><img src="/img/loading.gif" data-original="https:img/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DSA"/></a><div class="content"><a class="title" href="/2023/09/24/DSA/" title="DSA">DSA</a><time datetime="2023-09-24T08:39:27.000Z" title="发表于 2023-09-24 16:39:27">2023-09-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/23/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" title="近世代数"><img src="/img/loading.gif" data-original="https:img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="近世代数"/></a><div class="content"><a class="title" href="/2023/09/23/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/" title="近世代数">近世代数</a><time datetime="2023-09-23T06:22:49.000Z" title="发表于 2023-09-23 14:22:49">2023-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/" title="哈希函数"><img src="/img/loading.gif" data-original="https:img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="哈希函数"/></a><div class="content"><a class="title" href="/2023/09/21/%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/" title="哈希函数">哈希函数</a><time datetime="2023-09-21T07:14:11.000Z" title="发表于 2023-09-21 15:14:11">2023-09-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https:img/category_img.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By ahu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
