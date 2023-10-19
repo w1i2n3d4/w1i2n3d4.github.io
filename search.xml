@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>随笔四</title>
+      <link href="/2023/10/19/%E9%9A%8F%E7%AC%94%E5%9B%9B/"/>
+      <url>/2023/10/19/%E9%9A%8F%E7%AC%94%E5%9B%9B/</url>
+      
+        <content type="html"><![CDATA[<p>记录几个函数<code>solve()</code>,<code>roots()</code>,<code>small_roots()</code>,<code>nth_root()</code></p><p>我觉得这几个函数都是用来<strong>解方程</strong>的</p><h2 id="solve">solve()</h2><p><code>solve()</code>可以用来解方程和方程组，下面进行的测试都是在<code>SageMath</code>当中完成的。<code>Python</code>中库<code>sympy</code>也含有这个函数。</p><p><code>Python</code>中参考：<a href="https://blog.csdn.net/weixin_53512372/article/details/124268262">【pyhton解决数学问题】2用python解方程</a></p><h3 id="解单个方程">解单个方程</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var(&#x27;x&#x27;) # 创建一个名为x的符号变量</span><br><span class="line">f = x^3+2*x^2 == 45 # 相当于x^3+2*x^2-45=0</span><br><span class="line">x = solve(f,x)  # 返回这个方程的所有结果</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">x == -1/2*I*sqrt(35) - 5/2,</span><br><span class="line">x == 1/2*I*sqrt(35) - 5/2,</span><br><span class="line">x == 3</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h3 id="解方程组">解方程组</h3><p>示例一</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var(&#x27;p,q,r&#x27;) # 创建三个名为p q r的符号变量</span><br><span class="line">n = 105</span><br><span class="line">n1 = 15</span><br><span class="line">n2 = 7</span><br><span class="line">f1 = p*q*r == n</span><br><span class="line">f2 = p+q+r == n1</span><br><span class="line">f3 = 2*p+3*q-4*r == n2</span><br><span class="line">solution = solve([f1,f2,f3],[p,q,r])</span><br><span class="line">print(f&quot;solution = &#123;solution&#125;&quot;)</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">solution = [</span><br><span class="line">[p == 1/12*sqrt(35569) + 277/12, q == -1/14*sqrt(35569) - 143/14, r == -1/84*sqrt(35569) + 179/84],</span><br><span class="line">[p == -1/12*sqrt(35569) + 277/12, q == 1/14*sqrt(35569) - 143/14, r == 1/84*sqrt(35569) + 179/84],</span><br><span class="line">[p == 3, q == 7, r == 5]</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>示例二</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var(&#x27;p,q,r&#x27;) # 创建三个名为p q r的符号变量</span><br><span class="line">n = 18375</span><br><span class="line">n1 = 15</span><br><span class="line">n2 = 9</span><br><span class="line">f1 = p**3*q**2*r == n</span><br><span class="line">f2 = p+q+r == n1</span><br><span class="line">f3 = p+q-r == n2</span><br><span class="line">solution = solve([f1,f2,f3],[p,q,r])</span><br><span class="line">print(f&quot;solution = &#123;solution&#125;&quot;)</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">solution = [</span><br><span class="line">[p == 13.56625683060109, q == -1.566256830601093, r == 3.0],</span><br><span class="line">[p == 9.191511387163562, q == 2.808488612836439, r == 3.0],</span><br><span class="line">[p == (-1.878884224873671 - 2.50874695246713*I), q == (13.87888422487368 + 2.508746952467128*I), r == (3.000000000000005 - 1.77635683940025e-15*I)],</span><br><span class="line">[p == (-1.878884224873671 + 2.50874695246713*I), q == (13.87888422487367 - 2.508746952467127*I), r == (3.000000000000004 + 2.66453525910038e-15*I)],</span><br><span class="line">[p == 5, q == 7, r == 3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h2 id="roots">roots()</h2><p><code>foots()</code>返回<strong>多项式</strong>的根及其重数。根的重数是根作为解出现的次数。使用参数<code>multiplicities=False</code>就不会打印重数。</p><p><code>SageMath</code>示例</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R = PolynomialRing(QQ, &#x27;x&#x27;)  # Create a polynomial ring over the rational numbers with variable x</span><br><span class="line"># 等价于 R.&lt;x&gt; = PolynomialRing(QQ)</span><br><span class="line">f = x^3 - 3*x^2 + 3*x - 1  # Define a polynomial</span><br><span class="line">print(f.roots())  # Get its roots and their multiplicities</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 结果</span><br><span class="line">[(1, 3)] # 1是多项式f的一个根，重数是3</span><br></pre></td></tr></table></figure><p><code>QQ</code>代表有理数域，<code>f.roots()</code>返回该多项式在该域中所有的根;<code>ZZ</code>表示<strong>整数域</strong>。</p><h2 id="small_roots">small_roots()</h2><p><code>small_roots()</code>是<code>SageMath</code>中一个运用了<code>coppersmith</code>定理的函数。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">small_soots()主要用来寻找小根（一些绝对值比较小的根）</span><br><span class="line">small_roots(X = ,beta = )有两个参数，X代表所需要求解根的上限，一般来说取在给定条件下的最大求解上限；beta代表了所寻找的根的预期大小和可能的最大大小之间的比例.当p,q二进制位数相同时一般只能取0.4；如果p,q二进制位数不同，就要具体分析</span><br></pre></td></tr></table></figure><p>示例</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = 108960799213330048807537253155955524262938083957673388027650083719597357215238547761557943499634403020900601643719960988288543702833581456488410418793239589934165142850195998163833962875355916819854378922306890883033496525502067124670576471251882548376530637034077</span><br><span class="line">e = 3359917755894163258174451768521610910491402727660720673898848239095553816126131162471035843306464197912997253011899806560624938869918893182751614520610693643690087988363775343761651198776860913310798127832036941524620284804884136983215497742441302140070096928109039</span><br><span class="line">R.&lt;d&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">f = e*d - 251</span><br><span class="line">res = f.monic().small_roots(X = 2^256,beta = 0.44)  # d = random.getrandbits(256)</span><br><span class="line">print(res)</span><br><span class="line"></span><br><span class="line"># [39217838246811431279243531729119914044224429322696785472959081158748864949269]</span><br></pre></td></tr></table></figure><p><code>roots()</code>和<code>small_roots()</code>的区别在于前者返回所有根，运算速度较慢；而后者返回一些较小的根，运算速度较快一些，且使用<code>small_roots()</code>时多项式必须<strong>首一化</strong>。</p><h2 id="nth_root">nth_root()</h2><p><code>nth_root(r,all = True)</code>通常配合着<strong>整数环</strong>使用，结果返回在整数环中所有的<code>r</code>次方根。</p><p>先介绍一下整数环<code>Zmod(n)</code></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Zmod(n)定义了一个模数n的整数环。可以理解为是一个集合，其中的元素都是模n下的余数，即都属于[0,n-1]这个范围。</span><br></pre></td></tr></table></figure><p>看个例子</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">R = Zmod(5)   # 创建一个模 5 的整数环</span><br><span class="line">a = R(3)      # 创建一个模 5 下的元素，其值为 3</span><br><span class="line">b = R(4)      # 创建一个模 5 下的元素，其值为 4</span><br><span class="line"></span><br><span class="line">c = a + b     # 在模 5 下进行加法运算</span><br><span class="line">print(c)      # 输出结果为 2</span><br></pre></td></tr></table></figure><p>示例</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n = 17  # 选择一个模数</span><br><span class="line">R = Zmod(n) # 创建一个模n的整数环</span><br><span class="line">m = 4</span><br><span class="line">element = R(m) # 相当于element = m mod n</span><br><span class="line"></span><br><span class="line">roots = element.nth_root(100, all=True) # 返回x^100 = m mod n的所有根</span><br><span class="line">print(roots)</span><br><span class="line">&#x27;&#x27;&#x27;</span><br><span class="line"># 等价于</span><br><span class="line">n = 17  # 选择一个模数</span><br><span class="line">m = 4</span><br><span class="line">roots = Zmod(n)(m).nth_root(100,all = True)</span><br><span class="line">print(roots)&#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line"># [10, 11, 7, 6]</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 解方程、多项式、多项式环、整数环 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RSA中e和phi不互素问题</title>
+      <link href="/2023/10/19/RSA%E4%B8%ADe%E5%92%8Cphi%E4%B8%8D%E4%BA%92%E7%B4%A0%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/10/19/RSA%E4%B8%ADe%E5%92%8Cphi%E4%B8%8D%E4%BA%92%E7%B4%A0%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2023香山杯初赛-WP</title>
       <link href="/2023/10/18/2023%E9%A6%99%E5%B1%B1%E6%9D%AF%E5%88%9D-WP/"/>
       <url>/2023/10/18/2023%E9%A6%99%E5%B1%B1%E6%9D%AF%E5%88%9D-WP/</url>
