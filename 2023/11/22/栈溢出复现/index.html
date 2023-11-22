@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>栈溢出复现 | yolo</title><meta name="author" content="ahu"><meta name="copyright" content="ahu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="修改邻接变量复现 VC++6.0大概是版本太低，在win11这样版本较高的操作系统中与C语言语法不兼容，导致编译报错？？不清楚，这里使用IDA进行复现吧。 \(\bullet\)在vscode编写c程序，执行得到.exe文件 在vscode界面输入aaaaaaaaaaaaa,确实输出了OK（让我感到惊叹，真的很神奇！）    image-20231118170041797  \(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈溢出复现">
+<meta property="og:url" content="https://hucongting.com/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/index.html">
+<meta property="og:site_name" content="yolo">
+<meta property="og:description" content="修改邻接变量复现 VC++6.0大概是版本太低，在win11这样版本较高的操作系统中与C语言语法不兼容，导致编译报错？？不清楚，这里使用IDA进行复现吧。 \(\bullet\)在vscode编写c程序，执行得到.exe文件 在vscode界面输入aaaaaaaaaaaaa,确实输出了OK（让我感到惊叹，真的很神奇！）    image-20231118170041797  \(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hucongting.com/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/img/category_img.jpg">
+<meta property="article:published_time" content="2023-11-22T11:22:32.000Z">
+<meta property="article:modified_time" content="2023-11-22T11:25:36.181Z">
+<meta property="article:author" content="ahu">
+<meta property="article:tag" content="栈溢出">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hucongting.com/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/img/category_img.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hucongting.com/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '栈溢出复现',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-22 19:25:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/nailong.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https:img/category_img.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="yolo"><span class="site-name">yolo</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">栈溢出复现</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-22T11:22:32.000Z" title="发表于 2023-11-22 19:22:32">2023-11-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-22T11:25:36.181Z" title="更新于 2023-11-22 19:25:36">2023-11-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="栈溢出复现"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="修改邻接变量复现">修改邻接变量复现</h1>
+<p><code>VC++6.0</code>大概是版本太低，在<code>win11</code>这样版本较高的操作系统中与C语言语法不兼容，导致编译报错？？不清楚，这里使用<code>IDA</code>进行复现吧。</p>
+<p><span class="math inline">\(\bullet\)</span>在<code>vscode</code>编写<code>c程序</code>，执行得到<code>.exe</code>文件</p>
+<p>在<code>vscode</code>界面输入<code>aaaaaaaaaaaaa</code>,确实输出了<code>OK</code>（让我感到惊叹，真的很神奇！）</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120191213747.png" alt="image-20231120191213747" style="zoom:33%;"></p>
+<figure>
+<img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231118170041797.png" alt="image-20231118170041797">
+<figcaption aria-hidden="true">image-20231118170041797</figcaption>
+</figure>
+<p><span class="math inline">\(\bullet\)</span>把<code>.exe</code>拖进<code>IDA</code>进行分析，观察<code>栈</code>的变化</p>
+<p><code>f5</code>反编译，能看到<code>伪代码</code>。进入<code>fun</code>函数，设置断点，开始调试，打印出<code>str</code>和<code>password</code>的地址，这样就能快速找到它们在栈帧的位置了。</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120192620680.png" alt="image-20231120192620680" style="zoom:50%;"></p>
+<p>地址如下</p>
+<figure>
+<img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120192742997.png" alt="image-20231120192742997">
+<figcaption aria-hidden="true">image-20231120192742997</figcaption>
+</figure>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120193255474.png" alt="image-20231120193255474" style="zoom: 50%;"></p>
+<p>稍后输入<code>aaaaaaaaaaaaa</code>后，上图所标位置应该都被<code>61</code>（<code>a的ASCII码的hex形式</code>）覆盖，这样<code>str</code>的邻接变量<code>password</code>就被修改了，</p>
+<p>也就能绕过口令的验证了。</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120193738363.png" alt="image-20231120193738363" style="zoom: 33%;"></p>
+<p>执行<code>mov [rbp+var_B],0</code>指令后，地址<code>C1D5FFF905</code>被<code>0</code>覆盖</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120195148905.png" alt="image-20231120195148905" style="zoom: 33%;"></p>
+<p>当执行<code>printf</code>后，<code>OK</code>将会出现在<code>cmd</code>中</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120200147221.png" alt="image-20231120200147221" style="zoom: 33%;"></p>
+<figure>
+<img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120200445184.png" alt="image-20231120200445184">
+<figcaption aria-hidden="true">image-20231120200445184</figcaption>
+</figure>
+<p>之后就要释放<code>fun</code>函数的栈帧。</p>
+<p><code>esp</code>执行<code>add</code>指令，降低栈顶。</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120201120083.png" alt="image-20231120201120083" style="zoom:33%;"></p>
+<p>执行<code>pop</code>指令，释放栈帧，回到<code>main</code>函数的栈帧</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231120201432464.png" alt="image-20231120201432464" style="zoom:33%;"></p>
+<p>至此，复现完毕。</p>
+<h1 id="修改返回地址复现">修改返回地址复现</h1>
+<p>其实，修改返回地址就是<code>数组越界范围太大</code>，刚好把被调函数的返回地址也覆盖了。如果能知道攻击函数的入口地址，把越界数组的最后几位改为攻击函数的入口地址，也就攻击成功了。</p>
+<p>同样的步骤，先拿到<code>.exe</code>文件。</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121155100287.png" alt="image-20231121155100287" style="zoom:50%;"></p>
+<p>把<code>.exe</code>用<code>IDA</code>打开</p>
+<p><code>ctrl+f</code>打开搜索<code>attack</code>，得到<code>attack</code>的入口地址<code>00007FF767B515D4</code></p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121153649842.png" alt="image-20231121153649842" style="zoom:50%;"></p>
+<p>现在我们需要知道的是总的要覆盖多少位？</p>
+<p>先来分析一下，理论上<code>str</code>和<code>password</code>两个数组各占<code>6byte</code>，<code>64位</code>环境下<code>ebp</code>和<code>int</code>型返回值都占<code>8byte</code>，所以应该要覆盖<code>6+6+8+8 = 28byte</code>。</p>
+<p>用<code>010editor</code>打开<code>password.txt</code>文件，输入<code>28byte</code>的内容，并将最后<code>8byte</code>改为<code>attack</code>入口地址，注意是<code>小端序排序</code>。如下图</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121153942536.png" alt="image-20231121153942536" style="zoom:50%;"></p>
+<p>接下来反编译<code>.exe</code></p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121002245224.png" alt="image-20231121002245224" style="zoom: 50%;"></p>
+<p>发现伪代码的数组定义刚好反了，C代码中是先定义<code>str2(password)</code>,后定义<code>str1(str)</code>，这里是肿么回事捏？？？</p>
+<p>不过在<code>cmd</code>的打印出的地址发现变量入栈顺序是正确的。<code>str2(password)</code>先入栈，位于高地址，<code>str1(str)</code>后入栈，位于低地址。</p>
+<figure>
+<img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121151952707.png" alt="image-20231121151952707">
+<figcaption aria-hidden="true">image-20231121151952707</figcaption>
+</figure>
+<p>这个时候，<code>password</code>的值还是<code>ABCDE</code>，如下图</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121152245171.png" alt="image-20231121152245171" style="zoom:33%;"></p>
+<p>继续调试，覆盖<code>28byte</code>后，发现<code>attack</code>的入口地址居然覆盖的是<code>ebp</code>，返回地址压根儿没被影响，这也导致了一个<code>sp-analysis failed</code>的错误。这与前面的分析不符，说明栈帧中<code>str</code>到<code>返回值地址</code>之间应该还有其它数据存在。我们还要再多覆盖<code>8byte</code>。</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121152722171.png" alt="image-20231121152722171" style="zoom:80%;"></p>
+<p>修改<code>password.txt</code>文件的内容</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121154320870.png" alt="image-20231121154320870" style="zoom:50%;"></p>
+<p>再次调试，</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121154518087.png" alt="image-20231121154518087" style="zoom: 33%;"></p>
+<p>看到<code>attack</code>真的被调用了。</p>
+<p>继续往下调试，在<code>cmd</code>窗口中确实打印出了<code>Hello</code>，这样就算攻击成功了。</p>
+<p><img src="/img/loading.gif" data-original="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/image-20231121154802719.png" alt="image-20231121154802719" style="zoom: 67%;"></p>
+<p>到这里，就复现完毕了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://hucongting.com">ahu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hucongting.com/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/">https://hucongting.com/2023/11/22/栈溢出复现/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hucongting.com" target="_blank">yolo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/">栈溢出</a></div><div class="post_share"><div class="social-share" data-image="https:img/category_img.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/11/20/%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF%E9%87%91%E7%A0%962023%E7%BA%BF%E4%B8%8B%E8%B5%9B/" title="一带一路金砖2023线下赛"><img class="cover" src="/img/loading.gif" data-original="https:img/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">一带一路金砖2023线下赛</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/nailong.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ahu</div><div class="author-info__description">希望和悲伤都是一缕光，总有一天，我们会再相遇。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">30</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/w1i2n3d4"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://githubfast.com/w1i2n3d4" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:3235772652@qq.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%82%BB%E6%8E%A5%E5%8F%98%E9%87%8F%E5%A4%8D%E7%8E%B0"><span class="toc-number">1.</span> <span class="toc-text">修改邻接变量复现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%BF%94%E5%9B%9E%E5%9C%B0%E5%9D%80%E5%A4%8D%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">修改返回地址复现</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/" title="栈溢出复现"><img src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栈溢出复现"/></a><div class="content"><a class="title" href="/2023/11/22/%E6%A0%88%E6%BA%A2%E5%87%BA%E5%A4%8D%E7%8E%B0/" title="栈溢出复现">栈溢出复现</a><time datetime="2023-11-22T11:22:32.000Z" title="发表于 2023-11-22 19:22:32">2023-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/20/%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF%E9%87%91%E7%A0%962023%E7%BA%BF%E4%B8%8B%E8%B5%9B/" title="一带一路金砖2023线下赛"><img src="/img/loading.gif" data-original="https:img/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一带一路金砖2023线下赛"/></a><div class="content"><a class="title" href="/2023/11/20/%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF%E9%87%91%E7%A0%962023%E7%BA%BF%E4%B8%8B%E8%B5%9B/" title="一带一路金砖2023线下赛">一带一路金砖2023线下赛</a><time datetime="2023-11-20T01:45:34.000Z" title="发表于 2023-11-20 09:45:34">2023-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/14/%E9%B9%8F%E5%9F%8E%E6%9D%AF2023-%E5%A4%8D%E7%8E%B0/" title="鹏城杯2023-复现"><img src="/img/loading.gif" data-original="https:img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="鹏城杯2023-复现"/></a><div class="content"><a class="title" href="/2023/11/14/%E9%B9%8F%E5%9F%8E%E6%9D%AF2023-%E5%A4%8D%E7%8E%B0/" title="鹏城杯2023-复现">鹏城杯2023-复现</a><time datetime="2023-11-14T07:06:55.000Z" title="发表于 2023-11-14 15:06:55">2023-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/01/DAS-CBCTF-2023%E5%A4%8D%E7%8E%B0/" title="DAS-CBCTF 2023复现"><img src="/img/loading.gif" data-original="https:img/category_img.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DAS-CBCTF 2023复现"/></a><div class="content"><a class="title" href="/2023/11/01/DAS-CBCTF-2023%E5%A4%8D%E7%8E%B0/" title="DAS-CBCTF 2023复现">DAS-CBCTF 2023复现</a><time datetime="2023-11-01T06:41:32.000Z" title="发表于 2023-11-01 14:41:32">2023-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/28/ACTF-2023-WP/" title="ACTF 2023-WP"><img src="/img/loading.gif" data-original="https:img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ACTF 2023-WP"/></a><div class="content"><a class="title" href="/2023/10/28/ACTF-2023-WP/" title="ACTF 2023-WP">ACTF 2023-WP</a><time datetime="2023-10-28T12:48:32.000Z" title="发表于 2023-10-28 20:48:32">2023-10-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https:img/category_img.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By ahu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
